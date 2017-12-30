@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 // [END subscribe_topics]
 
                 // Log and toast
-                String msg1 = getString(R.string.msg_subscribed);
+                String msg1 = "Added Notification to the App";
                 Log.d(TAG, msg1);
                 Toast.makeText(MainActivity.this, msg1, Toast.LENGTH_SHORT).show();
                 return true;
