@@ -24,6 +24,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.chilkatsoft.CkCrypt2;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.firebase.ui.database.SnapshotParser;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         temperatureDataList = new ArrayList<TemperatureData>();
         recyclerView = (RecyclerView)findViewById(R.id.messageRecyclerView);
         recyclerView.setLayoutManager(mLinearLayoutManager);
+        CkCrypt2 crypt = new CkCrypt2();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // Create channel to show notifications.
@@ -180,6 +182,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
+    }
+
+    static {
+        // IMPORTANT: If one of the Chilkat subset shared libs is used, the name
+        // passed to loadLibrary must match the share lib name.  For example, if the
+        // shared lib is libchilkatcrypt.so, then pass "chilkatcrypt" to System.loadLibrary.
+
+        System.loadLibrary("chilkat");
     }
 }
 
